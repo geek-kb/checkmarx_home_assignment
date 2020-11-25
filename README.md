@@ -39,9 +39,10 @@ aws eks --region region update-kubeconfig --name cluster_name
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 ```
-8. In order to configure the REST api deployment, service and hpa, browse to checkmarx_task/tf-k8s and run:
+8. In order to configure the REST api deployment, service and hpa, browse to `checkmarx_task/tf-rest_app` and run:
 
 ```
+terraform plan
 terraform plan
 terraform apply
 ```
