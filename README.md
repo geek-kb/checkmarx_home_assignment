@@ -58,6 +58,17 @@ kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{
 ```
 11. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
 
+12. In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
+
+```
+parallel --jobs 30 curl -s http://K8s-rest_app-load_balancer-endpoint_address/tracks ::: {1..400}
+```
+And in another terminal window:
+
+```
+kubectl get pods -n checkmarx-home-assignment-euc1 -w
+```
+
 *** 
 
 The code in [rest_app directory](https://github.com/geek-kb/checkmarx_home_assignment/tree/master/rest_app) is taken from [this url](https://www.codementor.io/@sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq).
