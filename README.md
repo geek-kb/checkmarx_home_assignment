@@ -43,7 +43,7 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/down
 8. In order to configure the REST api deployment, service and hpa, browse to `checkmarx_task/tf-rest_app` and run:
 
 ```
-terraform plan
+terraform init
 terraform plan
 terraform apply
 ```
