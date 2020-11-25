@@ -5,6 +5,8 @@
 - aws-cli
 - terraform 
 
+* Before running terraform, go through each `vars.tf` file and verify the variables point to the correctt resources
+
 ### Process:
 
 1. Create a repo in AWS ECR:
