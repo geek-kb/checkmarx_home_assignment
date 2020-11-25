@@ -11,7 +11,7 @@
 ```
 aws ecr create-repository --repository-name checkmarkx_assignment
 ```
-2. Browse to `checkmarx_task/rest_app` and build a docker image:
+2. Browse to `checkmarx_home_assignment/rest_app` and build a docker image:
 ```
 docker build -t checkmarkx_assignment .
 ```
@@ -35,12 +35,12 @@ terraform apply
 ```
 aws eks --region region update-kubeconfig --name cluster_name
 ```
-6. Update the file `checkmarx_task/tf-rest_app/vars.tf` - container_image - to point to the ECR image name.
+6. Update the file `checkmarx_home_assignment/tf-rest_app/vars.tf` - container_image - to point to the ECR image name.
 7. Deploy the metrics-server:
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 ```
-8. In order to configure the REST api deployment, service and hpa, browse to `checkmarx_task/tf-rest_app` and run:
+8. In order to configure the REST api deployment, service and hpa, browse to `checkmarx_home_assignment/tf-rest_app` and run:
 
 ```
 terraform init
