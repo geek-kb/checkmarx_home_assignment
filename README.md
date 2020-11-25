@@ -59,7 +59,7 @@ terraform apply
 kubecttl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment-euc1
 ```
 
-2. Browse to [http://localhost:8081/tracks]() or [http://localhost:8081/employees]()
+2. Browse to [http://localhost:8081/tracks](http://localhost:8081/tracks) or [http://localhost:8081/employees](http://localhost:8081/employees)
 
 #### HPA:
 
@@ -93,7 +93,7 @@ kubectl port-forward service/prometheus-grafana 8088:80 -n default
 kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{print $2}' | head -1 | tr -d " " | base64 -d
 ```
 
-3. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
+3. Browse to [http://localhost:8088](http://localhost:8088) and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
 
 *** 
 
