@@ -48,26 +48,44 @@ terraform plan
 terraform apply
 ```
 
-9. Port-forward to the Grafana service in k8s:
-```
-kubectl port-forward service/prometheus-grafana 8088:80 -n default
-```
-10. Get the Grafana server password:
-```
-kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{print $2}' | head -1 | tr -d " " | base64 -d
-```
-11. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
+### Testing the environment
 
-12. In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
+#### rest_app
+
+1. Port-forward to the rest_app AWS load balancer:
+```
+kubecttl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment-euc1
+```
+
+2. Browse to [http://localhost:8081/tracks]() or [http://localhost:8081/employees]()
+
+#### HPA
+
+1. In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
 
 ```
 parallel --jobs 30 curl -s http://K8s-rest_app-load_balancer-endpoint_address/tracks ::: {1..400}
 ```
-And in another terminal window:
+
+And in another terminal window, run:
 
 ```
 kubectl get pods -n checkmarx-home-assignment-euc1 -w
 ```
+
+#### Grafana
+
+1. Port-forward to the Grafana service in k8s:
+```
+kubectl port-forward service/prometheus-grafana 8088:80 -n default
+```
+
+2. Get the Grafana server password:
+```
+kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{print $2}' | head -1 | tr -d " " | base64 -d
+```
+
+3. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
 
 *** 
 
