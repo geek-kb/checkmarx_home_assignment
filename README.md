@@ -50,7 +50,7 @@ terraform apply
 
 ### Testing the environment
 
-#### rest_app
+#### rest_app:
 
 1. Port-forward to the rest_app AWS load balancer:
 ```
@@ -59,9 +59,9 @@ kubecttl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment
 
 2. Browse to [http://localhost:8081/tracks]() or [http://localhost:8081/employees]()
 
-#### HPA
+#### HPA:
 
-1. In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
+In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
 
 ```
 parallel --jobs 30 curl -s http://K8s-rest_app-load_balancer-endpoint_address/tracks ::: {1..400}
@@ -73,7 +73,7 @@ And in another terminal window, run:
 kubectl get pods -n checkmarx-home-assignment-euc1 -w
 ```
 
-#### Grafana
+#### Grafana:
 
 1. Port-forward to the Grafana service in k8s:
 ```
