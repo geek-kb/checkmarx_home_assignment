@@ -9,7 +9,7 @@
 
 1. Create a repo in AWS ECR:
 ```
-aws ecr create-repository --repository-name checkmarx_task
+aws ecr create-repository --repository-name checkmarkx_assignment
 ```
 2. Browse to `checkmarx_task/rest_app` and build a docker image:
 ```
