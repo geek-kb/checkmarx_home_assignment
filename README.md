@@ -50,10 +50,10 @@ terraform apply
 
 9. Port-forward to the Grafana service in k8s:
 ```
-k port-forward service/prometheus-grafana 8088:80 -n default
+kubectl port-forward service/prometheus-grafana 8088:80 -n default
 ```
 10. Get the Grafana server password:
 ```
 kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{print $2}' | head -1 | tr -d " " | base64 -d
 ```
-11. Browse to [http://localhost:8088]() and use the username admin and the password you retrieved from the previous step to log into Grafana.
+11. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
