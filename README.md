@@ -19,7 +19,8 @@ docker build -t checkmarkx_assignment .
 
 ```
 aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin AWS_ECR_ADDRESS
-docker tag checkmarx_assignment:latest AWS_ECR_ADDRESS/checkmarx_assignment:latest && docker push AWS_ECR_ADDRESS/checkmarx_assignment:lates
+docker tag checkmarx_assignment:latest AWS_ECR_ADDRESS/checkmarx_assignment:latest
+docker push AWS_ECR_ADDRESS/checkmarx_assignment:lates
 ```
 
 4. In order to create a k8s cluster in AWS EKS, browse to `checkmarkx_task/tf-eks_cluster` and run:
