@@ -65,6 +65,12 @@ kubecttl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment
 
 In order to create the required load on the REST api to see how it scales up the number of the pods, run (in MacOs terminal):
 
+First, get the rest_app load balancer endpoint address by running:
+```
+kubectl get services -n checkmarx-home-assignment-euc1 | awk 'NR>1 {print $4}'
+```
+
+Then, using `parallel` (brew install parallel), run:
 ```
 parallel --jobs 30 curl -s http://K8s-rest_app-load_balancer-endpoint_address/tracks ::: {1..400}
 ```
