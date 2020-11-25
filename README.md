@@ -57,3 +57,7 @@ kubectl port-forward service/prometheus-grafana 8088:80 -n default
 kubectl get secret prometheus-grafana -o yaml | grep admin-password | awk -F: '{print $2}' | head -1 | tr -d " " | base64 -d
 ```
 11. Browse to [http://localhost:8088]() and use the username "admin" and the password you retrieved from the previous step in order to log into Grafana.
+
+*** 
+
+The code in [rest_app directory](https://github.com/geek-kb/checkmarx_home_assignment/tree/master/rest_app) is taken from [this url](https://www.codementor.io/@sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq).
