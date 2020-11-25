@@ -30,7 +30,7 @@ terraform plan
 terraform apply
 ```
 
-5. Update your kubeconfig to point the context to the new cluster:
+5. Update your kubeconfig to point to the context of the new cluster:
 ```
 aws eks --region region update-kubeconfig --name cluster_name
 ```
