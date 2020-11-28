@@ -56,7 +56,7 @@ terraform apply
 
 1. Port-forward to the rest_app AWS load balancer:
 ```
-kubecttl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment-euc1
+kubectl port-forward service/nginx-service 8081:80 -n checkmarx-home-assignment-euc1
 ```
 
 2. Browse to [http://localhost:8081/tracks](http://localhost:8081/tracks) or [http://localhost:8081/employees](http://localhost:8081/employees)
